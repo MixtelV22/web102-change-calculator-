@@ -1,0 +1,68 @@
+body {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    min-width: 300px;
+    max-width: 400px;
+    background-color: rgba(0, 128, 0, 0.18);
+    padding: 20px;
+    margin: 2rem auto;
+}
+
+h1, h2 {
+    color: black;
+    text-align: center;
+}
+
+p {
+    font-size: 1.1em;
+    text-align: center;
+    list-style: none;
+    padding: 0;
+}
+
+p span {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+    display: block;
+    margin-bottom: 1rem;
+    padding: .5rem;
+    width: 100%;
+    max-width: 330px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: lightgreen;
+    color: black;
+    border-width: 2px;
+    border-color: darkgreen;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: lime;
+    text-decoration: underline;
+}
+
+.change-row {
+  display: flex;
+  justify-content: center; /* or space-between depending on desired layout */
+  gap: 8px;
+  align-items: baseline;
+  margin: 6px 0;
+}
+
+.change-row .label {
+  font-weight: 600;
+  min-width: 90px; /* gives consistent alignment — tweak as desired */
+  text-align: right;
+}
+

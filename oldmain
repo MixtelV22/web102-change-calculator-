@@ -1,0 +1,53 @@
+document.getElementById('calculate-change').addEventListener('click', function () {
+    const denominations = { //Wait for the button to be clicked
+        twenties: 2000,
+        tens: 1000,
+        fives: 500,
+        twos: 200,
+        dollars: 100,
+        quarters: 25,
+        dimes: 10,
+        nickels: 5,
+        pennies: 1
+    };
+
+    //Reset to clear results
+    for (const key in denominations) {
+        const element = document.getElementById(`${key}-output`);
+        if (element) element.innerText = 0;
+}
+
+    //Get the values inputted by user
+    const saleInput = document.getElementById('amount-due').value;
+    const receivedInput = document.getElementById('amount-received').value;
+
+    //Check if inputs are valid numbers
+    const errorMessage = document.getElementById('error-message');
+    errorMessage.innerText = ""; //Clear any previous error message
+    
+    //convert values to numbers
+    const amountDue = parseFloat(saleInput);
+    const amountReceived = parseFloat(receivedInput);
+
+    //Validate inputs
+    if (isNaN(amountDue) || isNaN(amountReceived)) {
+    errorMessage.innerText = "Please enter valid numbers.";
+    return;
+}
+
+//Display alert if insufficient amount received
+if (amountReceived < amountDue) {
+    alert("Insufficient funds received");
+    return;
+}
+
+//Calculate change being returned
+let change = Math.round((amountReceived - amountDue) * 100); //cents
+
+//Loop through each denomination then display how many of each 
+for(const [key, value] of Object.entries(denominations)) {
+    const count = Math.floor(change / value);
+    document.getElementById(`${key}-output`).innerText = count;
+    change %= value; //Get the remainig change after using this denomination
+    }
+});
